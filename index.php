@@ -1,6 +1,4 @@
 <?php
-
-echo __DIR__;
     if (isset($_FILES["file"])) {
         // ユーザが送信したフォルダ内のPDFをカレントディレクトリに保存
         $files = $_FILES["file"];
@@ -35,13 +33,32 @@ echo __DIR__;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PDFReader</title>
+
+    <style>
+        .fileLabel {
+            border: 1px solid #777;
+            padding: 2px 8px;
+            font-size: .8rem;
+            background-color: #eee;
+            border-radius: 4px;
+        }
+
+        .fileLabel:hover {
+            background-color: #ddd;
+        }
+
+        .fileLabel:active {
+            background-color: #fff;
+        }
+    </style>
 </head>
+
 <body>
     <h1>PDFReader</h1>
     <p>複数のPDFファイルが入ったフォルダを選択</p>
     <form action="" method="POST" enctype="multipart/form-data">
-        <input class="" id="" type="file" name="file[]" webkitdirectory>
-        <!-- <input class="" id="" type="file" name="file"> -->
+        <input class="" id="file" type="file" name="file[]" webkitdirectory style="display: none">
+        <label class="fileLabel" for="file">フォルダを選択</label>
         <input type="submit">
     </form>
 </body>
